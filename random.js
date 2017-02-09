@@ -5,9 +5,9 @@ var namespace = "http://www.w3.org/2000/svg";
 // You need to use at least 3 different types of shape.
 // Remember, for the shapes to show up on the canvas, you'll need to CALL the function.
 function createFirstScene() {
-    
+var number = Math.random()
     makeRect(0, 0, 1000, 800, "cyan");
-    makeRect(0, 600, 1000, 400,"lightgreen"); 
+    makeRect(0, 600, 1000, 200,"lightgreen");
     makeCircle(500, 350, 75, "yellow");
     makeRect(375, 550, 200, 175, "red");
     makeRect(285, 550, 90, 175, "darkred");
@@ -17,6 +17,9 @@ function createFirstScene() {
     makeRect(480, 600, 10, 50, "grey");
 makePolygon("285,550 375,550 325,450","#654321")
 makePolygon("375,550 575,550 525,450 325,450","tan")
+if(number > .5){
+  makeImage("http://www.clker.com/cliparts/1/9/c/b/1341955749137744985Cartoon%20Farmer%20with%20Hoe.svg", 100, 500, 100, 133.3)
+}
 }
 
 
@@ -25,8 +28,8 @@ makePolygon("375,550 575,550 525,450 325,450","tan")
 // Remember, for the shapes to show up on the canvas, you'll need to CALL the function.
 function createSecondScene() {
     var text = Math.random()
-    makeRect(0, 0, 1000, 800, "purple");
-    makeRect(0, 600, 1000, 400,"darkgreen")
+    makeRect(0, 0, 1000, 800, "purple")
+    makeRect(0, 600, 1000, 200,"darkgreen")
     makeCircle(200, 250, 75, "darkgrey")
     makeEllipse(400, 675, 350, 75,"blue")
     makeEllipse(380, 650, 30, 15, "orange")
@@ -46,13 +49,18 @@ function createSecondScene() {
 // You need to use at least 3 different types of shape.
 // Remember, for the shapes to show up on the canvas, you'll need to CALL the function.
 function createThirdScene() {
-    makeEllipse()
+var number = Math.random()
+makeRect(0, 0, 1000, 800, "grey")
+makeRect(0, 600, 1000, 200, "green")
+makeCircle(500, 500, 75, "orange")
+if(number > .5){
+    makeImage("http://www.eternalbeauty.com.co/pato.png", 600, 400, 200, 300)
+    makeImage("http://freepngimages.com/wp-content/uploads/2016/02/ducklings-transparent-background.png", 720, 550, 300, 200)
+  }else{
+makeEllipse(400, 700, 400, 100, "lightblue")
+makeImage("http://1.bp.blogspot.com/-D5OYp4qvT8Q/TtRgjvSMpeI/AAAAAAAAC4I/pdp7loFmqQ8/s1600/rubber-ducky.png", 620, 650, 100, 100)
 }
-
-
-
-
-
+}
 // FILL IN THIS FUNCTION!
 // This function is called whenever you press the "Go!" button.
 function createRandomScene() {
@@ -65,19 +73,19 @@ var number = Math.random();
     }else{
     createThirdScene();
     }
-    
+
     // If the number is less than 0.33, call the function to create your first scene.
-    
-    
-    
+
+
+
     // Else, if the number is less than 0.67, call the function to create your second scene.
-    
-    
-    
+
+
+
     // Else, call the function to create your third scene.
-    
-    
-    
+
+
+
 }
 
 
@@ -95,7 +103,7 @@ function makeCircle(cx, cy, r, fill, opacity) {
   circle.setAttribute("r", r)
   circle.setAttribute("fill", fill)
   circle.setAttribute("opacity", opacity)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(circle)
   return circle
@@ -109,7 +117,7 @@ function makeRect(x, y, width, height, fill, opacity) {
   rect.setAttribute("height", height)
   rect.setAttribute("fill", fill)
   rect.setAttribute("opacity", opacity)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(rect)
   return rect
@@ -123,7 +131,7 @@ function makeEllipse(cx, cy, rx, ry, fill, opacity) {
   ellipse.setAttribute("ry", ry)
   ellipse.setAttribute("fill", fill)
   ellipse.setAttribute("opacity", opacity)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(ellipse)
   return ellipse
@@ -138,7 +146,7 @@ function makeLine(x1, y1, x2, y2, stroke, strokeWidth, opacity) {
   line.setAttribute("stroke", stroke)
   line.setAttribute("stroke-width", strokeWidth)
   line.setAttribute("opacity", opacity)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(line)
   return line
@@ -151,7 +159,7 @@ function makePolyline(points, stroke, strokeWidth, opacity) {
   polyline.setAttribute("stroke-width", strokeWidth)
   polyline.setAttribute("opacity", opacity)
   polyline.setAttribute("fill", "none")
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(polyline)
   return polyline
@@ -162,7 +170,7 @@ function makePolygon(points, fill, opacity) {
   polygon.setAttribute("points", points)
   polygon.setAttribute("opacity", opacity)
   polygon.setAttribute("fill", fill)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(polygon)
   return polygon
@@ -177,7 +185,7 @@ function makeText(message, x, y, fontSize, fontFamily, fill, opacity) {
   text.setAttribute("font-family", fontFamily)
   text.setAttribute("fill", fill)
   text.setAttribute("opacity", opacity)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(text)
   return text
@@ -191,7 +199,7 @@ function makeImage(url, x, y, width, height, opacity) {
   image.setAttribute("width", width)
   image.setAttribute("height", height)
   image.setAttribute("opacity", opacity)
-  
+
   var canvas = document.getElementById("canvas")
   canvas.appendChild(image)
   return image
